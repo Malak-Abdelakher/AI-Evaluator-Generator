@@ -1,3 +1,4 @@
+import os
 SUPPORTED_SOURCE_TYPES = {
     "pdf",
     "docx",

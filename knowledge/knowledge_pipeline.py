@@ -79,6 +79,8 @@ class KnowledgePipeline:
         ids = self.vector_store.add_documents(
             chunks
         )
+        if self.retriever.cache is not None:
+            self.retriever.cache.clear()
 
         return {
             "source": str(source),
