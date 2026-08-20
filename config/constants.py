@@ -20,3 +20,15 @@ CHROMA_PERSIST_DIRECTORY = (
 )
 
 DEFAULT_RETRIEVAL_K = 4
+
+REDIS_URL = os.getenv(
+    "REDIS_URL",
+    "redis://localhost:6379/0",
+)
+
+CACHE_DEFAULT_TTL = int(
+    os.getenv(
+        "CACHE_DEFAULT_TTL",
+        "3600",
+    )
+)

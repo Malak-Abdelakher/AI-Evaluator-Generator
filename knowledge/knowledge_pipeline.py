@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from langchain_core.documents import Document
-
+from cache.retrieval_cache import RetrievalCache
 from ingestion.pipeline import IngestionPipeline
 from knowledge.embeddings.embedding_service import (
     EmbeddingService,
@@ -45,15 +45,17 @@ class KnowledgePipeline:
     @classmethod
     def create_default(cls):
         embedding_service = EmbeddingService()
-
+        
         vector_store = VectorStoreService(
             embedding_function=(
                 embedding_service.embeddings
             )
         )
+        retrieval_cache = RetrievalCache()
 
         retriever = KnowledgeRetriever(
-            vector_store=vector_store
+            vector_store=vector_store,
+            cache=retrieval_cache,
         )
 
         return cls(
