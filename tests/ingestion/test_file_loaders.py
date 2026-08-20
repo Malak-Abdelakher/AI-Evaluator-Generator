@@ -1,6 +1,6 @@
 from pathlib import Path
 
-import fitz
+import pymupdf
 import pytest
 from docx import Document as DocxDocument
 
@@ -52,7 +52,7 @@ def test_docx_loader(tmp_path):
 def test_pdf_loader(tmp_path):
     file_path = tmp_path / "example.pdf"
 
-    pdf = fitz.open()
+    pdf = pymupdf.open()
     page = pdf.new_page()
 
     page.insert_text(

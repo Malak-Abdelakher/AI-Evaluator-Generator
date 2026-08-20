@@ -1,6 +1,6 @@
 from pathlib import Path
 
-import fitz
+import pymupdf
 from langchain_core.documents import Document
 
 from ingestion.base.base_loader import BaseKnowledgeLoader
@@ -25,7 +25,7 @@ class PDFKnowledgeLoader(BaseKnowledgeLoader):
 
         documents = []
 
-        pdf = fitz.open(path)
+        pdf = pymupdf.open(path)
 
         try:
             for page_index, page in enumerate(pdf):
