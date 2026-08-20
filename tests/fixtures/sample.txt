@@ -1,0 +1,5 @@
+LangChain is used to build applications that work with language models.
+
+LCEL stands for LangChain Expression Language.
+
+Redis can be used as a caching layer in an LLM application.
